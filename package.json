@@ -2,7 +2,6 @@
   "name": "blog",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://ivanmao714.github.io/blog",
   "type": "module",
   "scripts": {
     "dev": "vite",
