@@ -7,11 +7,11 @@ import { lookInSession } from "./common/session";
 import HomePage from "./pages/home";
 import SearchPage from "./pages/search";
 import PageNotFound from "./pages/404";
-// import ProfilePage from "./pages/profile.page";
+import ProfilePage from "./pages/profile";
 import BlogPage from "./pages/blog";
-// import SideNav from "./components/sidenavbar.component";
+import SideNav from "./components/sidenavbar";
 // import ChangePassword from "./pages/change-password.page";
-// import EditProfile from "./pages/edit-profile.page";
+import EditProfile from "./pages/edit-profile";
 // import Notifications from "./pages/notifications.page";
 // import ManageBlogs from "./pages/manage-blogs.page";
 
@@ -60,15 +60,15 @@ const App = () => {
                         {/* <Route path="dashboard" element={<SideNav />} > 
                             <Route path="blogs" element={<ManageBlogs />} />
                             <Route path="notifications" element={<Notifications />} />
-                        </Route>
+                        </Route> */}
                         <Route path="settings" element={<SideNav />} >  
                             <Route path="edit-profile" element={<EditProfile />} />
-                            <Route path="change-password" element={<ChangePassword />} />
-                        </Route> */}
-                        {/* <Route path="signin" element={<UserAuthForm type="sign-in" />} /> 
-                        <Route path="signup" element={<UserAuthForm type="sign-up" />} /> */}
+                            {/* <Route path="change-password" element={<ChangePassword />} /> */}
+                        </Route>
+                        <Route path="signin" element={<UserAuthForm type="sign-in" />} /> 
+                        <Route path="signup" element={<UserAuthForm type="sign-up" />} />
                         <Route path="search/:query" element={<SearchPage />} />
-                        {/* <Route path="user/:id" element={<ProfilePage />} /> */}
+                        <Route path="user/:id" element={<ProfilePage />} />
                         <Route path="blog/:blog_id" element={<BlogPage />}/>
                         <Route path="*" element={<PageNotFound />} /> 
                     </Route>

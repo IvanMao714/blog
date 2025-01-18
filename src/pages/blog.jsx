@@ -31,9 +31,9 @@ const BlogPage = () => {
     const [ commentsWrapper, setCommentsWrapper ] = useState(false);
     const [ totalParentCommentsLoaded, setTotalParentCommentsLoaded ] = useState(0);
 
-    console.log(blog);
+    // console.log(blog);
     let { title, content , banner, author: { personal_info: { fullname, username: author_username , profile_img } }, publishedAt } = blog;
-
+    // console.log(content);
     const fetchBlog = () => {
         axios.post(import.meta.env.VITE_SERVER_DOMAIN + "blog/get-blog", { blog_id })
         .then(async ({ data: { blog } }) => {
@@ -42,6 +42,7 @@ const BlogPage = () => {
             // blog.comments = await fetchComments({ blog_id: blog._id, setParentCommentCountFun: setTotalParentCommentsLoaded })
             blog.comments = [];
             setBlog(blog);
+            console.log(blog);
 
             // axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/search-blogs", { tag: blog.tags[0], limit: 6, eliminate_blog: blog_id })
             // .then(({ data }) => {
@@ -173,6 +174,7 @@ const BlogPage = () => {
         resetStates();
 
         fetchBlog();
+        console.log(content);
 
 
     }, [blog_id])
@@ -186,6 +188,8 @@ const BlogPage = () => {
         setTotalParentCommentsLoaded(0);
     }
 
+    console.log(content);
+
     return (
         <AnimationWrapper>
             {
@@ -197,7 +201,7 @@ const BlogPage = () => {
 
                     <div className="max-w-[900px] center py-10 max-lg:px-[5vw]">
 
-                        <img src={banner} className="aspect-video" />
+                        {/* <img src={banner} className="aspect-video" /> */}
 
                         <div className="mt-12">
                             <h2>{title}</h2>
@@ -218,20 +222,21 @@ const BlogPage = () => {
                             </div>
                         </div>
 
-                        <BlogInteraction />
+                        {/* <BlogInteraction /> */}
 
                         <div className="my-12 font-gelasio blog-page-content">
-                            {
+                            {/* {
                                 content.blocks.map((block, i) => {
                                     return <div key={i} className="my-4 md:my-8">
                                         <BlogContent block={block} />
                                     </div>
                                 })
-                            }
+                            } */}
+                            <BlogContent content={content} />
                         </div>
 
-                        {/* <BlogInteraction />
-
+                        <BlogInteraction />
+{/* 
                         {
                             similarBlogs != null && similarBlogs.length ?
                                 <>
@@ -251,7 +256,7 @@ const BlogPage = () => {
                                     }
                                 </>
                             : " "
-                        } */}
+                        }  */}
 
                     </div>
                 </BlogContext.Provider>
